@@ -5,8 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,8 +32,14 @@ public class IndexController {
     @Resource
     private LoadBalancerClient loadBalancerClient;
 
+
     @GetMapping("")
     public String index() {
+        return "ok";
+    }
+
+    @GetMapping("/access")
+    public String access() {
         // 选择第一个
         ServiceInstance instance = null;
 
@@ -47,8 +51,8 @@ public class IndexController {
             instance = loadBalancerClient.choose("discoveryprovidersrv");
         }
 
-        String targetUrl = instance.getUri()+"/v1/discoveryprovidersrv";
-        logger.debug("target:"+targetUrl);
+        String targetUrl = instance.getUri() + "/v1/discoveryprovidersrv";
+        logger.debug("target:" + targetUrl);
         String response = restTemplate.getForObject(targetUrl, String.class);
         return response;
     }

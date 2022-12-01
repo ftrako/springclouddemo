@@ -13,3 +13,4 @@
 | demoapisrv           |                                       | 7000 |
 | discoveryprovidersrv |                                       | 7002 |
 | discoveryconsumersrv |                                       | 7004 |
+| gatewayapisrv        |                                       | 7010 |
