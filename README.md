@@ -14,3 +14,4 @@
 | discoveryprovidersrv |                                       | 7002 |
 | discoveryconsumersrv |                                       | 7004 |
 | gatewayapisrv        |                                       | 7010 |
+| sentinelsrv          |                                       | 7012 |
