@@ -1,0 +1,8 @@
+server:
+  port: 8000
+
+logging:
+  level:
+    com.example: debug
+  pattern:
+    console: '%d{yyyy-MM-dd hh:mm:ss.SSS} %-5level %logger{100}:%L->%M\(\) - %msg%n'
