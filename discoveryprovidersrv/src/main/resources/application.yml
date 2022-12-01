@@ -9,7 +9,10 @@ logging:
 spring:
   application:
     name: discoveryprovidersrv
+  profiles:
+    active: dev
   cloud:
     nacos:
       discovery:
         server-addr: registercenter.jxallinpay-lan.com:8848,registercenter2.jxallinpay-lan.com:8848,registercenter3.jxallinpay-lan.com:8848
+        namespace: ${spring.profiles.active}

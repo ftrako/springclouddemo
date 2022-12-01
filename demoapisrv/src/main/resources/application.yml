@@ -7,4 +7,8 @@ logging:
   pattern:
     console: '%d{yyyy-MM-dd hh:mm:ss.SSS} %-5level %logger{100}:%L->%M\(\) - %msg%n'
 
-
+spring:
+  application:
+    name: demoapisrv
+  profiles:
+    active: dev
