@@ -31,13 +31,22 @@ public class IndexController {
     @Resource
     private RestTemplate restTemplate;
 
+    @Resource
+    private LoadBalancerClient loadBalancerClient;
+
     @GetMapping("")
     public String index() {
-        // 获取服务 `demo-provider` 对应的实例列表
-        List<ServiceInstance> instances = discoveryClient.getInstances("discoveryprovidersrv");
-
         // 选择第一个
-        ServiceInstance instance = instances.size() > 0 ? instances.get(0) : null;
+        ServiceInstance instance = null;
+
+        if (false) {
+            // 获取服务 `demo-provider` 对应的实例列表
+            List<ServiceInstance> instances = discoveryClient.getInstances("discoveryprovidersrv");
+            instance = instances.size() > 0 ? instances.get(0) : null;
+        } else {
+            instance = loadBalancerClient.choose("discoveryprovidersrv");
+        }
+
         String targetUrl = instance.getUri()+"/v1/discoveryprovidersrv";
         logger.debug("target:"+targetUrl);
         String response = restTemplate.getForObject(targetUrl, String.class);
