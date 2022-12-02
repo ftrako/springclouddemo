@@ -1,0 +1,19 @@
+server:
+  port: 7014
+
+logging:
+  level:
+    com.example: debug
+  pattern:
+    console: '%d{yyyy-MM-dd hh:mm:ss.SSS} %-5level %logger{100}:%L->%M\(\) - %msg%n'
+
+spring:
+  application:
+    name: feigndemoapisrv
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: registercenter.jxallinpay-lan.com:8848,registercenter2.jxallinpay-lan.com:8848,registercenter3.jxallinpay-lan.com:8848
+        namespace: ${spring.profiles.active}

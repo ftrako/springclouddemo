@@ -15,3 +15,4 @@
 | discoveryconsumersrv |                                       | 7004 |
 | gatewayapisrv        |                                       | 7010 |
 | sentinelsrv          |                                       | 7012 |
+| feigndemoapisrv      |                                       | 7014 |

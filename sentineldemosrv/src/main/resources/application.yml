@@ -35,7 +35,7 @@ spring:
       filter:
         enabled: true
         url-patterns: /**
-      eager: false # 是否饥饿加载。默认为 false 关闭
+      eager: true # 是否饥饿加载。默认为 false 关闭
       transport:
         dashboard: localhost:8080 # 是否饥饿加载。
         port: 8719
